@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABO Test</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111;
+color:white;
+padding:20px;
+max-width:700px;
+margin:auto;
+}
+h1{text-align:center;}
+.question{
+background:#222;
+padding:15px;
+margin:15px 0;
+border-radius:10px;
+}
+button{
+width:100%;
+padding:15px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#ff5fa2;
+color:white;
+margin-top:20px;
+}
+#result{
+margin-top:25px;
+font-size:22px;
+text-align:center;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🐺 ABO TEST 🩷</h1>
+
+<div class="question">
+<p>1. Khi gặp mâu thuẫn?</p>
+<label><input type="radio" name="q1" value="A"> Đối đầu</label><br>
+<label><input type="radio" name="q1" value="B"> Bình tĩnh</label><br>
+<label><input type="radio" name="q1" value="O"> Né tránh</label>
+</div>
+
+<div class="question">
+<p>2. Bạn thích?</p>
+<label><input type="radio" name="q2" value="A"> Dẫn dắt</label><br>
+<label><input type="radio" name="q2" value="B"> Hợp tác</label><br>
+<label><input type="radio" name="q2" value="O"> Chăm sóc người khác</label>
+</div>
+
+<div class="question">
+<p>3. Bạn được nhận xét là?</p>
+<label><input type="radio" name="q3" value="A"> Mạnh mẽ</label><br>
+<label><input type="radio" name="q3" value="B"> Đáng tin</label><br>
+<label><input type="radio" name="q3" value="O"> Dịu dàng</label>
+</div>
+
+<button onclick="check()">Xem kết quả</button>
+
+<div id="result"></div>
+
+<script>
+function check(){
+let A=0,B=0,O=0;
+
+for(let i=1;i<=3;i++){
+let c=document.querySelector('input[name="q'+i+'"]:checked');
+if(!c){
+alert("Làm hết câu nha không tao cắt chym😭");
+return;
+}
+if(c.value=="A")A++;
+if(c.value=="B")B++;
+if(c.value=="O")O++;
+}
+
+let kq="";
+
+if(A>=B&&A>=O)kq="🐺 đù bn là ALPHA";
+else if(B>=A&&B>=O)kq="🌿 oke bn là BETA";
+else kq="🌸 bấy bì OMEGA";
+
+document.getElementById("result").innerHTML=kq;
+}
+</script>
+
+</body>
+                                                                 </html>
